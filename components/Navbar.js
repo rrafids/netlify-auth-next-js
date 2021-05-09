@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useContext } from "react";
 import AuthContext from "../stores/authContext";
 
 export default function Navbar() {
+  const router = useRouter();
   const { user, login, logout, authReady } = useContext(AuthContext);
 
   return (
@@ -15,12 +17,20 @@ export default function Navbar() {
           <ul>
             <li>
               <Link href="/">
-                <a>Home</a>
+                {router.pathname === "/" ? (
+                  <a className="nav-active">Home</a>
+                ) : (
+                  <a>Home</a>
+                )}
               </Link>
             </li>
             <li>
               <Link href="/guides">
-                <a>Guides</a>
+                {router.pathname === "/guides" ? (
+                  <a className="nav-active">Guides</a>
+                ) : (
+                  <a>Guides</a>
+                )}
               </Link>
             </li>
             {!user && (

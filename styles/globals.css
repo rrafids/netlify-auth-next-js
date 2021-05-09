@@ -12,6 +12,7 @@ body {
   color: #444;
   background: #f2f2f2;
 }
+
 a {
   color: inherit;
   text-decoration: none;
@@ -27,6 +28,11 @@ nav {
   display: flex;
   align-items: center;
 }
+
+.nav-active {
+  color: var(--primary);
+}
+
 nav h1 {
   margin-left: 10px;
 }
